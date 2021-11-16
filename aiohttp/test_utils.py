@@ -471,6 +471,7 @@ class AioHTTPTestCase(TestCase):
 
     def tearDown(self) -> None:
         self.loop.run_until_complete(self.tearDownAsync())
+        teardown_test_loop(self.loop)
 
     async def tearDownAsync(self) -> None:
         await self.client.close()
